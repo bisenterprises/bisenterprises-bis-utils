@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          registry-url: https://npm.pkg.github.com
+          registry-url: "https://npm.pkg.github.com"
 
       - name: Install dependencies
         run: npm install
@@ -27,12 +27,11 @@ jobs:
       - name: Build packages
         run: npm run build --workspaces
 
-      - name: Publish bis-validation
-        run: npm publish --workspace=@bisenterprises/ema-validation --access public
+      - name: Authenticate with GitHub Packages
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+
+      - name: Publish all workspaces
+        run: npm run publish:workspaces
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish bis-utils
-        run: npm publish --workspace=@bisenterprises/bis-utils --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

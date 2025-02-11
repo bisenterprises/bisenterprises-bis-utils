@@ -1,8 +1,15 @@
 {
-    "name": "@bisenterprises/bis-utils",
-    "version": "1.0.0",
-    "description": "EMA front-end utilities",
-    "publishConfig": {
-      "registry": "https://npm.pkg.github.com"
-    }
+  "name": "@bisenterprises/bis-utils",
+  "version": "1.0.0",
+  "description": "EMA front-end utilities",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "scripts": {
+    "publish:workspaces": "npm run build --workspaces && npm workspaces foreach --topological --no-private npm publish --access public"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
