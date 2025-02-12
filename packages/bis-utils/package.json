@@ -14,13 +14,17 @@
 		"watch": "webpack --watch --mode=development",
 		"test": "jest --color"
 	},
+	"peerDependencies": {
+		"react": ">=17.0.2"
+	},
 	"dependencies": {
-		"@bisenterprises/ema-validation": "^1.10.1"
+		"@bisenterprises/bis-validation": "*"
 	},
 	"gitHead": "3a1fcf2628cec772904674ccba29d94277ec0560",
 	"repository": {
 		"type": "git",
-		"url": "ssh://git@github.bisenterprises.com:7999/appdev/ema-utils-fe.git",
+		"url": "https://github.com/bisenterprises/bisenterprises-bis-utils",
 		"directory": "packages/bis-utils"
-	}
+	},
+	"license": "MIT"
 }
